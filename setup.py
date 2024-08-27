@@ -7,11 +7,11 @@ setup(
     name="ai-image-generation-discord-bot",
     version="0.1.0",
     author="Your Name",
-    author_email="your.email@example.com",
+    author_email="mrschmiklz@gmail.com",
     description="A Discord bot for AI-powered image generation",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/your-repo-name",
+    url="https://https://github.com/mrschmiklz/AIPG-Image-Gen-Bot",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 3 - Alpha",
