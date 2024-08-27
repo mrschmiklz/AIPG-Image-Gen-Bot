@@ -56,6 +56,22 @@ Users can customize various aspects of image generation:
 - Sampler
 - Model
 
+## Flux Image Generation
+
+This bot includes integration with the Flux image generation model, which connects to a local Pinokio server (https://pinokio.computer/). This feature allows for additional image generation capabilities alongside the AI Power Grid API.
+
+Key points about the Flux integration:
+- Requires a local Pinokio server running the Flux model
+- Accessed through the "Flux it" button in the bot's interface
+- Provides an alternative image generation option with different characteristics
+
+To use the Flux integration:
+1. Ensure you have a Pinokio server set up and running locally
+2. The bot will automatically connect to the Pinokio server at http://127.0.0.1:7860/
+3. Use the "Flux it" button in the bot interface to generate images using the Flux model
+
+Note: The Flux integration is an advanced feature and requires additional setup. Make sure your Pinokio server is properly configured before using this feature.
+
 ## Setup and Configuration
 
 1. Clone the repository
