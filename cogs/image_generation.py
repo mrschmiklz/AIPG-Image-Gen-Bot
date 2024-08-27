@@ -355,17 +355,22 @@ class ImageGeneration(commands.Cog):
         self.bot = bot
         self.available_models = []
         self.bot.loop.create_task(self.initialize_models())
-        info("ImageGeneration cog initialized")
+        self.channel_id = int(CHANNEL_ID)
+        info(f"ImageGeneration cog initialized with channel ID: {self.channel_id}")
 
     async def initialize_models(self):
         self.available_models = await self.get_available_models()
 
     @commands.command(name="dream")
     async def dream_command(self, ctx, *, prompt):
+        if ctx.channel.id != self.channel_id:
+            return
         await self.generate_and_send_image(ctx.channel, prompt)
 
     @commands.command(name="list_models")
     async def list_models_command(self, ctx):
+        if ctx.channel.id != self.channel_id:
+            return
         """Command to list available models"""
         await ctx.send("Fetching available models...")
         try:
@@ -384,14 +389,12 @@ class ImageGeneration(commands.Cog):
     async def on_message(self, message):
         if message.author == self.bot.user:
             return
-
-        if message.channel.id != CHANNEL_ID:
+        
+        if message.channel.id != self.channel_id:
             return
-
+        
         if message.content.startswith('!dream'):
-            ctx = await self.bot.get_context(message)
-            if not ctx.command:
-                await self.handle_dream_command(message)
+            await self.handle_dream_command(message)
 
     async def handle_dream_command(self, message):
         info(f"Handling dream command: {message.content}")

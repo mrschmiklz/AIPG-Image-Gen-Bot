@@ -27,7 +27,7 @@ async def on_ready():
         logger.info(f' - {guild.name} (ID: {guild.id})')
     
     # Send online message
-    channel = bot.get_channel(CHANNEL_ID)
+    channel = bot.get_channel(int(CHANNEL_ID))
     if channel:
         user_id = 277656871987576833
         try:
@@ -39,6 +39,12 @@ async def on_ready():
             logger.error(f"Failed to send online message: {str(e)}")
     else:
         logger.error(f"Failed to find channel with ID: {CHANNEL_ID}")
+
+@bot.event
+async def on_message(message):
+    if message.channel.id != int(CHANNEL_ID):
+        return
+    await bot.process_commands(message)
 
 if __name__ == "__main__":
     logger.info("Main script started")
