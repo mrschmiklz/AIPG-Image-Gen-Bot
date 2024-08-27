@@ -1,4 +1,4 @@
-# AI Image Generation Discord Bot
+# AI POWER GRID Image Generation Discord Bot
 
 ## Overview
 
@@ -76,4 +76,4 @@ Contributions to improve the bot are welcome. Please follow the standard fork-an
 
 ## License
 
-[Specify your license here]
+Per model
